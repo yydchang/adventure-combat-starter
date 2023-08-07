@@ -4,7 +4,8 @@ const {Food} = require('./food');
 
 class Player extends Character {
   constructor(name, startingRoom) {
-    super(name, "main character", startingRoom);
+    super(name, startingRoom);
+    this.description = "main character";
   }
 
   move(direction) {

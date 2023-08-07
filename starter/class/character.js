@@ -2,7 +2,7 @@ const { Room } = require("./room");
 const { Item } = require("./item");
 
 class Character {
-  constructor(name, description, currentRoom, items) {
+  constructor(name, description, currentRoom) {
     this.name = name;
     this.description = description;
     this.currentRoom = currentRoom;
@@ -27,10 +27,11 @@ class Character {
   }
 }
 
-room = new Room("Test Room", "A test room");
-item = new Item("rock", "just a simple rock");
-let character = new Character("Character", "an ordinary character", room);
-character.items.push(item);
+// Test
+// room = new Room("Test Room", "A test room");
+// item = new Item("rock", "just a simple rock");
+// let character = new Character("Character", "an ordinary character", room);
+// character.items.push(item);
 
 module.exports = {
   Character,
