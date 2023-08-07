@@ -1,8 +1,11 @@
+const { Item } = require("./item");
+
 class Room {
   constructor(name, description) {
     this.name = name;
     this.description = description;
     this.exits = {};
+    this.enemies = [];
     this.items = [];
   }
 
@@ -54,7 +57,11 @@ class Room {
   }
 
   getItemByName(name) {
-    // Fill this in
+    for (const item of this.items) {
+      if (item.name === name) {
+        return item;
+      }
+    }
   }
 
   getEnemyByName(name) {

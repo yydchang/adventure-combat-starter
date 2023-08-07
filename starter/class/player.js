@@ -1,11 +1,11 @@
-const {Character} = require('./character');
-const {Enemy} = require('./enemy');
-const {Food} = require('./food');
+const { Character } = require("./character");
+const { Enemy } = require("./enemy");
+const { Food } = require("./food");
+const { Room } = require("../class/room.js");
 
 class Player extends Character {
   constructor(name, startingRoom) {
-    super(name, startingRoom);
-    this.description = "main character";
+    super(name, "main character", startingRoom);
   }
 
   move(direction) {
@@ -33,19 +33,27 @@ class Player extends Character {
   }
 
   takeItem(itemName) {
-    // Fill this in
+    this.items.push(this.currentRoom.getItemByName(itemName));
+    this.currentRoom.items = this.currentRoom.items.filter(
+      (item) => item.name !== itemName
+    );
   }
 
   dropItem(itemName) {
-    // Fill this in
+    this.currentRoom.items.push(this.getItemByName(itemName));
+    this.items = this.items.filter((item) => item.name !== itemName);
   }
 
   eatItem(itemName) {
-    // Fill this in
+    this.items = this.items.filter((item) => item.isFood !== true);
   }
 
   getItemByName(name) {
-    // Fill this in
+    for (const item of this.items) {
+      if (item.name === name) {
+        return item;
+      }
+    }
   }
 
   hit(name) {

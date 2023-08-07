@@ -9,10 +9,11 @@ class Enemy extends Character {
   constructor(name, description, currentRoom) {
     super(name, description, currentRoom);
     this.cooldown = 3000;
+    this.player = {};
   }
 
   setPlayer(player) {
-    this.player = player;
+    // Fill this in
   }
 
   randomMove() {
@@ -66,24 +67,6 @@ class Enemy extends Character {
     this.alert(`${this.name} scratches its nose`);
   }
 }
-
-// Test
-room = new Room("Test Room", "A test room");
-item = new Item("rock", "just a simple rock");
-sandwich = new Food("sandwich", "a delicious looking sandwich");
-enemy = new Enemy("enemy", "an ordinary character", room);
-player = new Player("player", room);
-
-World.enemies.push(enemy);
-World.setPlayer(player);
-
-enemy.items.push(item);
-room.items.push(sandwich);
-
-let westRoom = new Room("West Room", "A room to the west of testRoom");
-room.connectRooms("w", westRoom);
-
-enemy.cooldown = 0;
 
 module.exports = {
   Enemy,
