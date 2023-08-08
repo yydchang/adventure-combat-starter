@@ -78,7 +78,6 @@ class World {
         enemyData.description,
         enemyRoom
       );
-      enemyRoom.enemies.push(newEnemy); // test
       World.enemies.push(newEnemy);
     }
   }

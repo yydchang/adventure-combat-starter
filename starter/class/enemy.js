@@ -51,6 +51,9 @@ class Enemy extends Character {
 
   attack() {
     // Fill this in
+    this.attackTarget.applyDamage(10);
+    this.cooldown += 3000;
+    this.alert(`${this.name} attacks!`);
   }
 
   applyDamage(amount) {

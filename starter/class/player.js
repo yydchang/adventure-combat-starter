@@ -62,10 +62,9 @@ class Player extends Character {
 
   hit(name) {
     let enemy = this.currentRoom.getEnemyByName(name);
-    console.log(this.currentRoom.getEnemyByName);
-    console.log(enemy);
     enemy.applyDamage(30);
     enemy.attackTarget = this;
+    enemy.cooldown = 0;
   }
 
   die() {
