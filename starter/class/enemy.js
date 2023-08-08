@@ -25,7 +25,7 @@ class Enemy extends Character {
   }
 
   randomMove() {
-    this.cooldown += 5000;
+    this.cooldown += 7000;
     const exits = this.currentRoom.getExits();
     const randomExit = exits[Math.floor(Math.random() * exits.length)];
     const randomConnectingRoom =
@@ -65,27 +65,26 @@ class Enemy extends Character {
     }
   }
 
-  // applyDamage(amount) {
-  // currently using parent class function but can do more here later
-  // super.applyDamage(amount);
-  // }
+  applyDamage(amount) {
+    super.applyDamage(amount);
+    this.cooldown = 0;
+  }
 
   act() {
-
-  if (this.health <= 0) {
-    this.die();
-    console.log(`${this.name} is dead.`);
-  } else if (this.cooldown > 0) {
-    this.rest();
-  } else {
-    if (this.player && this.player.currentRoom === this.currentRoom) {
-      const randomAct =
-        this.actions[Math.floor(Math.random() * this.actions.length)];
-      randomAct();
-      // this.scratchNose();
+    if (this.health <= 0) {
+      this.die();
+      console.log(`${this.name} is dead.`);
+    } else if (this.cooldown > 0) {
+      this.rest();
+    } else {
+      if (this.player && this.player.currentRoom === this.currentRoom) {
+        const randomAct =
+          this.actions[Math.floor(Math.random() * this.actions.length)];
+        randomAct();
+        // this.scratchNose();
+      }
+      this.rest();
     }
-    this.rest();
-  }
 
     // Fill this in
   }
