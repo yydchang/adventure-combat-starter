@@ -40,12 +40,12 @@ class Enemy extends Character {
 
   rest() {
     // Wait until cooldown expires, then act
-    console.log("rest");
+    // Is there a way to end this loop?
     const resetCooldown = function () {
       this.cooldown = 0;
-      // this.act();
+      this.act();
     };
-    setTimeout(resetCooldown, this.cooldown);
+    setTimeout(resetCooldown.bind(this), this.cooldown);
   }
 
   attack() {
@@ -70,11 +70,18 @@ class Enemy extends Character {
   }
 
   scratchNose() {
-    this.cooldown += 1000;
+    this.cooldown += 3000;
 
     this.alert(`${this.name} scratches its nose`);
   }
 }
+
+// Test
+let enemy;
+let room;
+room = new Room("Test Room", "A test room");
+enemy = new Enemy("enemy", "an ordinary character", room);
+enemy.act();
 
 module.exports = {
   Enemy,

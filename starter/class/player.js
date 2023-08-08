@@ -1,5 +1,5 @@
 const { Character } = require("./character");
-// const { Enemy } = require("./enemy");
+const { Enemy } = require("./enemy");
 // const { Food } = require("./food");
 // const { Room } = require("../class/room.js");
 // const { World } = require("./world");
@@ -60,7 +60,11 @@ class Player extends Character {
     }
   }
 
-  hit(name) {}
+  hit(name) {
+    // const enemy = this.currentRoom.getItemByName(name);
+    // enemy.applyDamage(30);
+    // enemy.attackTarget = this;
+  }
 
   die() {
     console.log("You are dead!");
