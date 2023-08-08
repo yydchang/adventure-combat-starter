@@ -13,7 +13,10 @@ class Enemy extends Character {
     // Actions
     this.cooldown = 3000;
     this.actions = [
+      // Actions are currently weighted purely by having duplicate array entries. Todo: refactor so different actions can be tied to different enemies and with different weight.
       this.randomMove.bind(this),
+      this.attack.bind(this),
+      this.attack.bind(this),
       this.attack.bind(this),
       this.scratchNose.bind(this),
     ];

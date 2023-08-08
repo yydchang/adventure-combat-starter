@@ -27,14 +27,12 @@ class Character {
   }
 
   takeItem(itemName) {
-    let item = this.currentRoom.getItemByName(itemName);
+    const item = this.currentRoom.getItemByName(itemName);
     this.items.push(item);
-    console.log(
-      `You added the ${item.name} to your inventory. Type 'i' to check your entire inventory.`
-    );
     this.currentRoom.items = this.currentRoom.items.filter(
       (item) => item.name !== itemName
     );
+    return item;
   }
 
   dropItem(itemName) {

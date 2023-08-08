@@ -33,6 +33,13 @@ class Player extends Character {
     }
   }
 
+  takeItem(itemName) {
+    const item = super.takeItem(itemName);
+    console.log(
+      `You added the ${item.name} to your inventory. Type 'i' to check your entire inventory.`
+    );
+  }
+
   hit(name) {
     let enemy = this.currentRoom.getEnemyByName(name);
     if (enemy !== undefined) {
