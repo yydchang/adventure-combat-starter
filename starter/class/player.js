@@ -1,4 +1,8 @@
 const { Character } = require("./character");
+const { Enemy } = require("./enemy");
+// const { Food } = require("./food");
+// const { Room } = require("../class/room.js");
+// const { World } = require("./world");
 
 class Player extends Character {
   constructor(name, startingRoom) {
@@ -53,7 +57,9 @@ class Player extends Character {
         enemy.attackTarget = this;
         enemy.cooldown = 0;
       } else {
-        console.log(`${name} isn't here. Go find them!`);
+        if (enemy.health > 0) {
+          console.log(`${name} isn't here. Go find them!`);
+        }
       }
     } else {
       console.log(`${name} isn't here. Go find them!`);
@@ -65,6 +71,7 @@ class Player extends Character {
     process.exit();
   }
 }
+
 
 module.exports = {
   Player,
