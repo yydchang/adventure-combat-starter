@@ -1,6 +1,3 @@
-const { Room } = require("./room");
-const { Item } = require("./item");
-
 class Character {
   constructor(name, description, currentRoom) {
     this.name = name;
@@ -65,7 +62,6 @@ class Character {
     }
   }
 }
-
 
 module.exports = {
   Character,

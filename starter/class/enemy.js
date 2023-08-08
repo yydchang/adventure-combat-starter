@@ -1,9 +1,4 @@
 const { Character } = require("./character");
-const { Room } = require("./room");
-// const { Food } = require("./food");
-// const { Item } = require("./item");
-// const { Player } = require("./player");
-// const { World } = require("./world");
 
 class Enemy extends Character {
   constructor(name, description, currentRoom, health) {

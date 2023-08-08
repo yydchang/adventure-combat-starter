@@ -1,12 +1,9 @@
 const { Character } = require("./character");
-const { Enemy } = require("./enemy");
-// const { Food } = require("./food");
-// const { Room } = require("../class/room.js");
-// const { World } = require("./world");
 
 class Player extends Character {
   constructor(name, startingRoom) {
     super(name, "main character", startingRoom);
+    this.weapon = [];
   }
 
   move(direction) {
@@ -68,7 +65,6 @@ class Player extends Character {
     process.exit();
   }
 }
-
 
 module.exports = {
   Player,
