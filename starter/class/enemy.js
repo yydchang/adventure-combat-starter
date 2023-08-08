@@ -41,7 +41,6 @@ class Enemy extends Character {
 
   rest() {
     // Wait until cooldown expires, then act
-    // Is there a way to end this loop?
     const resetCooldown = function () {
       this.cooldown = 0;
       this.act();
@@ -56,13 +55,15 @@ class Enemy extends Character {
     this.alert(`${this.name} attacks!`);
   }
 
-  applyDamage(amount) {
-    // Fill this in
-  }
+  // applyDamage(amount) {
+  // currently using parent class function but can do more here later
+  // super.applyDamage(amount);
+  // }
 
   act() {
     if (this.health <= 0) {
       this.die();
+      console.log(`${this.name} is dead.`);
     } else if (this.cooldown > 0) {
       this.rest();
     } else {
@@ -79,12 +80,6 @@ class Enemy extends Character {
     this.alert(`${this.name} scratches its nose`);
   }
 }
-
-// Test
-let enemy;
-let room;
-room = new Room("Test Room", "A test room");
-enemy = new Enemy("enemy", "an ordinary character", room);
 
 module.exports = {
   Enemy,

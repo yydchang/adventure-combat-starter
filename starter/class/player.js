@@ -34,7 +34,11 @@ class Player extends Character {
   }
 
   takeItem(itemName) {
-    this.items.push(this.currentRoom.getItemByName(itemName));
+    let item = this.currentRoom.getItemByName(itemName);
+    this.items.push(item);
+    console.log(
+      `You added the ${item.name} to your inventory. Type 'i' to check your entire inventory.`
+    );
     this.currentRoom.items = this.currentRoom.items.filter(
       (item) => item.name !== itemName
     );
@@ -48,6 +52,8 @@ class Player extends Character {
   eatItem(itemName) {
     let item = this.getItemByName(itemName);
     if (item.isFood === true) {
+      this.health += 10; // refactor later to have different items worth different health points
+      console.log(`You ate the ${item.name} and gained 10 health points.`);
       this.items = this.items.filter((item) => item.name !== itemName);
     }
   }
@@ -63,6 +69,11 @@ class Player extends Character {
   hit(name) {
     let enemy = this.currentRoom.getEnemyByName(name);
     enemy.applyDamage(30);
+    if (enemy.health > 0) {
+      console.log(
+        `   You hit ${enemy.name}! ${enemy.name}'s health is now ${enemy.health}`
+      );
+    }
     enemy.attackTarget = this;
     enemy.cooldown = 0;
   }
