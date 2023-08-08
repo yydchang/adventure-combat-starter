@@ -77,14 +77,19 @@ class Player extends Character {
   hit(name) {
     let enemy = this.currentRoom.getEnemyByName(name);
     if (enemy !== undefined) {
-      enemy.applyDamage(this.strength);
-      if (enemy.health > 0) {
-        console.log(
-          `   You hit ${enemy.name}! ${enemy.name}'s health is now ${enemy.health}`
-        );
+      if (enemy.player && enemy.player.currentRoom === enemy.currentRoom) {
+        enemy.applyDamage(this.strength);
+        if (enemy.health > 0) {
+          console.log(
+            `   You hit ${enemy.name}! ${enemy.name}'s health is now ${enemy.health}`
+          );
+        }
+
+        enemy.attackTarget = this;
+        enemy.cooldown = 0;
+      } else {
+        console.log(`${name} isn't here. Go find them!`);
       }
-      enemy.attackTarget = this;
-      enemy.cooldown = 0;
     } else {
       console.log(`${name} isn't here. Go find them!`);
     }
