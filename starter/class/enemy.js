@@ -31,18 +31,23 @@ class Enemy extends Character {
   }
 
   randomMove() {
-    this.cooldown += 7000;
+    this.cooldown += 5000;
     const exits = this.currentRoom.getExits();
     const randomExit = exits[Math.floor(Math.random() * exits.length)];
     const randomConnectingRoom =
       this.currentRoom.getRoomInDirection(randomExit);
     this.currentRoom = randomConnectingRoom;
     this.currentRoom.enemies.push(this);
+    this.takeFood();
     console.log(`${this.name} moved to the ${this.currentRoom.name}`);
   }
 
-  takeSandwich() {
-    // Fill this in
+  takeFood() {
+    for (const item of this.currentRoom.items) {
+      if (item.isFood) {
+        this.takeItem(item.name);
+      }
+    }
   }
 
   // Print the alert only if player is standing in the same room
@@ -79,7 +84,9 @@ class Enemy extends Character {
   act() {
     if (this.health <= 0) {
       this.die();
-      console.log(`${this.name} is dead.`);
+      console.log(
+        `${this.name} is dead. Type 'l' to see if they dropped any items.`
+      );
     } else if (this.cooldown > 0) {
       this.rest();
     } else {
