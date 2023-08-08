@@ -62,6 +62,8 @@ class World {
 
       if (itemData.isFood) {
         newItem = new Food(itemData.name, itemData.description);
+      } else if (itemData.isWeapon) {
+        newItem = new Weapon(itemData.name, itemData.description, itemData.strengthAdjustment);
       } else {
         newItem = new Item(itemData.name, itemData.description);
       }

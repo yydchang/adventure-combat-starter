@@ -39,7 +39,10 @@ class Player extends Character {
     console.log(
       `You added the ${item.name} to your inventory. Type 'i' to check your entire inventory.`
     );
-    if (item.isFood) {
+    if (item.isWeapon) {
+      console.log(`Your strength has increased by ${item.strengthAdjustment}.`);
+      this.strength += item.strengthAdjustment;
+    } else if (item.isFood) {
       console.log(`You can eat ${item.name} now or save it for later.`);
     }
   }
