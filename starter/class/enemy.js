@@ -12,6 +12,11 @@ class Enemy extends Character {
     this.cooldown = 3000;
     this.attackTarget = null;
     this.player = null;
+    this.actions = [
+      this.randomMove.bind(this),
+      this.attack.bind(this),
+      this.scratchNose.bind(this),
+    ];
     this.currentRoom.enemies.push(this);
   }
 
@@ -20,13 +25,14 @@ class Enemy extends Character {
   }
 
   randomMove() {
+    this.cooldown += 5000;
     const exits = this.currentRoom.getExits();
     const randomExit = exits[Math.floor(Math.random() * exits.length)];
     const randomConnectingRoom =
       this.currentRoom.getRoomInDirection(randomExit);
     this.currentRoom = randomConnectingRoom;
     this.currentRoom.enemies.push(this);
-    this.cooldown += 500;
+    console.log(`${this.name} moved to the ${this.currentRoom.name}`);
   }
 
   takeSandwich() {
@@ -51,10 +57,12 @@ class Enemy extends Character {
 
   attack() {
     this.cooldown += 3000;
-    this.attackTarget.applyDamage(this.strength);
-    this.alert(
-      `${this.name} attacks! Your health is now ${this.attackTarget.health}.`
-    );
+    if (this.attackTarget) {
+      this.attackTarget.applyDamage(this.strength);
+      this.alert(
+        `${this.name} attacks! Your health is now ${this.attackTarget.health}.`
+      );
+    }
   }
 
   // applyDamage(amount) {
@@ -63,21 +71,27 @@ class Enemy extends Character {
   // }
 
   act() {
-    if (this.health <= 0) {
-      this.die();
-      console.log(`${this.name} is dead.`);
-    } else if (this.cooldown > 0) {
-      this.rest();
-    } else {
-      this.scratchNose();
-      this.rest();
+
+  if (this.health <= 0) {
+    this.die();
+    console.log(`${this.name} is dead.`);
+  } else if (this.cooldown > 0) {
+    this.rest();
+  } else {
+    if (this.player && this.player.currentRoom === this.currentRoom) {
+      const randomAct =
+        this.actions[Math.floor(Math.random() * this.actions.length)];
+      randomAct();
+      // this.scratchNose();
     }
+    this.rest();
+  }
 
     // Fill this in
   }
 
   scratchNose() {
-    this.cooldown += 4000;
+    this.cooldown += 3000;
 
     this.alert(`${this.name} scratches its nose`);
   }
