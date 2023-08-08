@@ -77,7 +77,7 @@ class Enemy extends Character {
   }
 
   scratchNose() {
-    this.cooldown += 3000;
+    this.cooldown += 4000;
 
     this.alert(`${this.name} scratches its nose`);
   }

@@ -51,10 +51,18 @@ class Player extends Character {
 
   eatItem(itemName) {
     let item = this.getItemByName(itemName);
-    if (item.isFood === true) {
+    if (item && item.isFood) {
       this.health += 10; // refactor later to have different items worth different health points
       console.log(`You ate the ${item.name} and gained 10 health points.`);
       this.items = this.items.filter((item) => item.name !== itemName);
+    } else if (!item) {
+      console.log(
+        `${itemName} is not in the inventory. If you see ${itemName} in your room, type 'take ${itemName}' first.`
+      );
+    } else {
+      console.log(
+        `${itemName} is not food! If you make a habit of eating this, please see your doctor.`
+      );
     }
   }
 
