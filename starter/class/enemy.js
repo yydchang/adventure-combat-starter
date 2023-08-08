@@ -11,6 +11,7 @@ class Enemy extends Character {
     this.cooldown = 3000;
     this.attackTarget = null;
     this.player = null;
+    this.currentRoom.enemies.push(this);
   }
 
   setPlayer(player) {
@@ -81,7 +82,6 @@ let enemy;
 let room;
 room = new Room("Test Room", "A test room");
 enemy = new Enemy("enemy", "an ordinary character", room);
-enemy.act();
 
 module.exports = {
   Enemy,

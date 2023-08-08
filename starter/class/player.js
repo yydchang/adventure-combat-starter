@@ -61,9 +61,11 @@ class Player extends Character {
   }
 
   hit(name) {
-    // const enemy = this.currentRoom.getItemByName(name);
-    // enemy.applyDamage(30);
-    // enemy.attackTarget = this;
+    let enemy = this.currentRoom.getEnemyByName(name);
+    console.log(this.currentRoom.getEnemyByName);
+    console.log(enemy);
+    enemy.applyDamage(30);
+    enemy.attackTarget = this;
   }
 
   die() {
@@ -71,6 +73,7 @@ class Player extends Character {
     process.exit();
   }
 }
+
 
 module.exports = {
   Player,
