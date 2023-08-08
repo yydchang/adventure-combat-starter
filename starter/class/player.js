@@ -68,7 +68,7 @@ class Player extends Character {
 
   hit(name) {
     let enemy = this.currentRoom.getEnemyByName(name);
-    enemy.applyDamage(30);
+    enemy.applyDamage(this.strength);
     if (enemy.health > 0) {
       console.log(
         `   You hit ${enemy.name}! ${enemy.name}'s health is now ${enemy.health}`

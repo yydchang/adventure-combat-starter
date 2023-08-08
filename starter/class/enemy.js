@@ -6,8 +6,9 @@ const { Room } = require("./room");
 // const { World } = require("./world");
 
 class Enemy extends Character {
-  constructor(name, description, currentRoom) {
+  constructor(name, description, currentRoom, health) {
     super(name, description, currentRoom);
+    this.health = health;
     this.cooldown = 3000;
     this.attackTarget = null;
     this.player = null;
@@ -49,10 +50,11 @@ class Enemy extends Character {
   }
 
   attack() {
-    // Fill this in
-    this.attackTarget.applyDamage(10);
     this.cooldown += 3000;
-    this.alert(`${this.name} attacks!`);
+    this.attackTarget.applyDamage(this.strength);
+    this.alert(
+      `${this.name} attacks! Your health is now ${this.attackTarget.health}.`
+    );
   }
 
   // applyDamage(amount) {

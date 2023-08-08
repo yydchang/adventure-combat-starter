@@ -76,7 +76,8 @@ class World {
       let newEnemy = new Enemy(
         enemyData.name,
         enemyData.description,
-        enemyRoom
+        enemyRoom,
+        enemyData.health
       );
       World.enemies.push(newEnemy);
     }
