@@ -41,12 +41,21 @@ module.exports = {
       name: "rock",
       description: "Just a simple rock",
       room: 1,
+      isWeapon: true,
+      strengthAdjustment: 5,
     },
     {
       name: "sandwich",
       description: "A tasty looking sandwich",
       room: 2,
       isFood: true,
+    },
+    {
+      name: "sword",
+      description: "Careful, it's sharp",
+      room: 3,
+      isWeapon: true,
+      strengthAdjustment: 10,
     },
   ],
   enemies: [

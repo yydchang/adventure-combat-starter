@@ -24,11 +24,11 @@ class Player extends Character {
 
   printInventory() {
     if (this.items.length === 0) {
-      console.log(`${this.name} is not carrying anything.`);
+      console.log(`You are not carrying anything.`);
     } else {
-      console.log(`${this.name} is carrying:`);
+      console.log(`You are carrying:`);
       for (let i = 0; i < this.items.length; i++) {
-        console.log(`  ${this.items[i].name}`);
+        console.log(`  ${this.items[i].name}: ${this.items[i].description}`);
       }
     }
   }
@@ -38,6 +38,9 @@ class Player extends Character {
     console.log(
       `You added the ${item.name} to your inventory. Type 'i' to check your entire inventory.`
     );
+    if (item.isFood) {
+      console.log(`You can eat ${item.name} now or save it for later.`);
+    }
   }
 
   hit(name) {

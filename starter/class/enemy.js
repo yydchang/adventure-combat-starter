@@ -94,12 +94,9 @@ class Enemy extends Character {
         const randomAct =
           this.actions[Math.floor(Math.random() * this.actions.length)];
         randomAct();
-        // this.scratchNose();
       }
       this.rest();
     }
-
-    // Fill this in
   }
 
   scratchNose() {
