@@ -1,7 +1,8 @@
 const { Character } = require("./character");
-const { Enemy } = require("./enemy");
-const { Food } = require("./food");
-const { Room } = require("../class/room.js");
+// const { Enemy } = require("./enemy");
+// const { Food } = require("./food");
+// const { Room } = require("../class/room.js");
+// const { World } = require("./world");
 
 class Player extends Character {
   constructor(name, startingRoom) {
@@ -45,7 +46,10 @@ class Player extends Character {
   }
 
   eatItem(itemName) {
-    this.items = this.items.filter((item) => item.isFood !== true);
+    let item = this.getItemByName(itemName);
+    if (item.isFood === true) {
+      this.items = this.items.filter((item) => item.name !== itemName);
+    }
   }
 
   getItemByName(name) {
@@ -56,9 +60,7 @@ class Player extends Character {
     }
   }
 
-  hit(name) {
-    // Fill this in
-  }
+  hit(name) {}
 
   die() {
     console.log("You are dead!");

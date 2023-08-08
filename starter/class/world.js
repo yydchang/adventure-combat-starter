@@ -1,8 +1,6 @@
-const { Character } = require("./character");
 const { Enemy } = require("./enemy");
 const { Food } = require("./food");
 const { Item } = require("./item");
-const { Player } = require("./player");
 const { Room } = require("./room");
 
 class World {

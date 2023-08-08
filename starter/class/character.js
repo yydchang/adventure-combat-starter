@@ -27,11 +27,6 @@ class Character {
   }
 }
 
-// Test
-// room = new Room("Test Room", "A test room");
-// item = new Item("rock", "just a simple rock");
-// let character = new Character("Character", "an ordinary character", room);
-// character.items.push(item);
 
 module.exports = {
   Character,
