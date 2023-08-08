@@ -54,7 +54,7 @@ module.exports = {
       name: "goblin",
       description: "A mean-looking goblin",
       room: 3,
-      health: 30,
+      health: 150,
     },
   ],
 };

@@ -7,16 +7,19 @@ const { Room } = require("./room");
 
 class Enemy extends Character {
   constructor(name, description, currentRoom, health) {
+    // Stats
     super(name, description, currentRoom);
     this.health = health;
+    // Actions
     this.cooldown = 3000;
-    this.attackTarget = null;
-    this.player = null;
     this.actions = [
       this.randomMove.bind(this),
       this.attack.bind(this),
       this.scratchNose.bind(this),
     ];
+    this.attackTarget = null;
+    this.player = null;
+    // Status
     this.currentRoom.enemies.push(this);
   }
 
