@@ -38,9 +38,9 @@ Type `npm install` to install the test packages, then `mocha` to run tests.
 
 ## Bonus tasks
 
-1. [x] Make the goblin pick up food when in the same room
-2. [] Modify strength and health values for the player and goblin
-3. [] Create a `Weapon` class that inherits from `Item` that can be wielded for more strength
+[x] Make the goblin pick up food when in the same room
+[] Modify strength and health values for the player and goblin
+[] Create a `Weapon` class that inherits from `Item` that can be wielded for more strength
    [x] Create Weapon class file
    [x] Export Weapon class into World
    [x] Add Weapon to world-data
@@ -48,12 +48,12 @@ Type `npm install` to install the test packages, then `mocha` to run tests.
    [x] Add function for Weapon to increase strength of character. Currently doing this upon picking up the weapon.
    [] Add function for Enemy to steal items
    [] Limit weapon to one at a time
-4. [] Create an `Armor` class that can be worn to reduce damage
-5. [x] Increase health when `Food` is eaten
-6. [] Create new combat abilities and scenarios
-7. [] Grow the world and enemies for more complex scenarios
-8. [] Create a friendly `Shopkeeper` character that cannot be attacked and will sell you items
+[] Create an `Armor` class that can be worn to reduce damage
+[x] Increase health when `Food` is eaten
+[] Create new combat abilities and scenarios
+[] Grow the world and enemies for more complex scenarios
+[] Create a friendly `Shopkeeper` character that cannot be attacked and will sell you items
    [] Add currency system
    [] Add limit to inventory
-9. [] Use your imagination! The sky is the limit.
+[] Use your imagination! The sky is the limit.
    [] Add win condition when all enemies are defeated
