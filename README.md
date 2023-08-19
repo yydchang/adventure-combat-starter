@@ -38,22 +38,22 @@ Type `npm install` to install the test packages, then `mocha` to run tests.
 
 ## Bonus tasks
 
-[x] Make the goblin pick up food when in the same room
-[] Modify strength and health values for the player and goblin
-[] Create a `Weapon` class that inherits from `Item` that can be wielded for more strength
-   [x] Create Weapon class file
-   [x] Export Weapon class into World
-   [x] Add Weapon to world-data
-   [x] Add function to equip player with Weapon. Currently doing this upon picking up the weapon.
-   [x] Add function for Weapon to increase strength of character. Currently doing this upon picking up the weapon.
-   [] Add function for Enemy to steal items
-   [] Limit weapon to one at a time
-[] Create an `Armor` class that can be worn to reduce damage
-[x] Increase health when `Food` is eaten
-[] Create new combat abilities and scenarios
-[] Grow the world and enemies for more complex scenarios
-[] Create a friendly `Shopkeeper` character that cannot be attacked and will sell you items
-   [] Add currency system
-   [] Add limit to inventory
-[] Use your imagination! The sky is the limit.
-   [] Add win condition when all enemies are defeated
+- [x] Make the goblin pick up food when in the same room
+- [] Modify strength and health values for the player and goblin
+- [] Create a `Weapon` class that inherits from `Item` that can be wielded for more strength
+   - [x] Create Weapon class file
+   - [x] Export Weapon class into World
+   - [x] Add Weapon to world-data
+   - [x] Add function to equip player with Weapon. Currently doing this upon picking up the weapon.
+   - [x] Add function for Weapon to increase strength of character. Currently doing this upon picking up the weapon.
+   - [] Add function for Enemy to steal items
+   - [] Limit weapon to one at a time
+- [] Create an `Armor` class that can be worn to reduce damage
+- [x] Increase health when `Food` is eaten
+- [] Create new combat abilities and scenarios
+- [] Grow the world and enemies for more complex scenarios
+- [] Create a friendly `Shopkeeper` character that cannot be attacked and will sell you items
+   - [] Add currency system
+   - [] Add limit to inventory
+- [] Use your imagination! The sky is the limit.
+   - [] Add win condition when all enemies are defeated
