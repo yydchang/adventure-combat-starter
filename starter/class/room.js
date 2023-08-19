@@ -1,5 +1,3 @@
-const { Item } = require("./item");
-
 class Room {
   constructor(name, description) {
     this.name = name;
